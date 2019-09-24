@@ -20,3 +20,4 @@ buildNumber.properties
 settings.json
 .project
 .classpath
+.vscode/launch.json
