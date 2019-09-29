@@ -110,13 +110,6 @@
 				<springActiveProfile>web</springActiveProfile>
 			</properties>
 			<dependencies>
-				<!--<dependency>
-					<groupId>com.oracle</groupId>
-					<artifactId>ojdbc8</artifactId>
-					<version>12.2.0.1</version>
-				</dependency>-->
-				<!-- <dependency> <groupId>org.postgresql</groupId> <artifactId>postgresql</artifactId> 
-					<version>42.2.2</version> <scope>runtime</scope> </dependency> -->
 				<dependency>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-devtools</artifactId>
@@ -157,6 +150,20 @@
 								<profile>web</profile>
 							</profiles>
 						</configuration>
+						<executions>
+							<execution>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+							<configuration>
+								<classifier>spring-boot</classifier>
+								<mainClass>
+								space.qbpo.spring_boot_systemd.MyApp.java
+								</mainClass>
+							</configuration>
+							</execution>
+						</executions>
+	
 					</plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
