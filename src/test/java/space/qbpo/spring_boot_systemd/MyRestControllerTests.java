@@ -39,5 +39,9 @@ public class MyRestControllerTests {
 		assert("Hello".equals(myResult.getFstring()));
 	}
 	
-	
+	@Test
+	public void testAfterPropertiesSet () throws Exception {
+		MyRestController mrc = new MyRestController();
+		mrc.afterPropertiesSet();
+	}	
 }

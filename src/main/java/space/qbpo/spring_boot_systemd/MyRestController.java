@@ -1,5 +1,8 @@
 package space.qbpo.spring_boot_systemd;
 
+import java.io.IOException;
+
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping (path = "/api/")
 @Profile (value = {"web"})
-public class MyRestController {
+public class MyRestController implements InitializingBean {
 
 	public static class MyResponse {
 		private String fstring;
@@ -42,5 +45,20 @@ public class MyRestController {
 		response.setFstring("Hello");
 		return response;
 	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		ProcessBuilder pb = new ProcessBuilder("docker", "run", "hello-world");
+		pb.inheritIO();
+
+		try {
+			pb.start();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			System.out.println("blar 2");
+		}
+	}
 	
+
 }
