@@ -35,7 +35,7 @@ public class MyRestController {
 
 	@CrossOrigin
 	@RequestMapping (value = "hello", produces = {MediaType.APPLICATION_JSON_VALUE}, 
-			consumes = {MediaType.APPLICATION_JSON_VALUE}, method = RequestMethod.POST) 
+		method = RequestMethod.GET) 
 	public MyResponse hello () {
 		MyResponse response = new MyResponse();
 		response.setFInteger(0);

@@ -15,7 +15,8 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.10.RELEASE</version>
+		<!--<version>1.5.10.RELEASE</version>-->
+		<version>2.1.8.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -80,6 +81,7 @@
 			</resource>
 		</resources>
 		<plugins>
+		
 		<!--
 			<plugin>
 				<groupId>com.mysema.maven</groupId>
@@ -99,13 +101,13 @@
 			</plugin>-->
 		</plugins>
 	</build>
-
+	
 	<profiles>
 
 		<profile>
 			<id>dev</id>
 			<properties>
-				<springActiveProfile>public</springActiveProfile>
+				<springActiveProfile>web</springActiveProfile>
 			</properties>
 			<dependencies>
 				<!--<dependency>
@@ -152,7 +154,7 @@
 						<configuration>
 							<profiles>
 								<profile>dev</profile>
-								<!--<profile>web</profile>-->
+								<profile>web</profile>
 							</profiles>
 						</configuration>
 					</plugin>
